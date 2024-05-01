@@ -5,6 +5,7 @@ def make_guess(list, training):
     entrydata = [list[0].lower(), list[1].lower(), list[2].lower(), list[3].lower(), list[4].lower(), list[5].lower()]
     maximum_element = ["", "", "", "", 0]
     max_across_all = ["", "", "", "", 0]
+    # find the most common entry based on the current key words
     for tr in training:
         if tr[0] == entrydata[0]:
             if tr[4] > max_across_all[4]:
