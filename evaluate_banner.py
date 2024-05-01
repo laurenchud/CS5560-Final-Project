@@ -24,10 +24,10 @@ def evaluate_banner(trainingsetnum, numofbannertests, parsed_dataset, result_dat
             #     if ven.lower() in httpbanner:
             #         vendorinbanner = True
             #         resultvendor = ven
-            # for pro in products:
-            #     if pro.lower() in httpbanner:
-            #         productinbanner = True
-            #         resultproduct = pro
+            for pro in products:
+                if pro.lower() in httpbanner:
+                    productinbanner = True
+                    resultproduct = pro
             # httpbanner = httpbanner.lower()
             # # eliminate banner fillers
             # httpbanner = httpbanner.strip()
