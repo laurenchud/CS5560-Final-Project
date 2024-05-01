@@ -1,3 +1,6 @@
+# the purpose of this file is to take an input text file of banner data and convert it into a usable list with a tuple for each
+# banner that contains the banner type, banner, ips, device, vendor, and product
+
 def parse_dataset(parsed_dataset, file, devices, vendors):
     # banner filtering
     fillers = ["html", "head", "title", "content", "charset", "script", "verdana", "arial", "helvetica", "sans-serif",
