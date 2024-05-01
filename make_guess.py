@@ -1,3 +1,6 @@
+# the purpose of this file to use the apriori algorithm and trained dataset to make the best <device, vendor, product> guess possible
+# based on the key words generated from banner processing
+
 # machine learning algorithm
 def make_guess(list, training):
     # list has form [type, banner, ip, device, vendor, product]
