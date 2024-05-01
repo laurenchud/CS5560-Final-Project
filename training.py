@@ -1,3 +1,5 @@
+# the purpose of this file is to train the apriori algorithm with a specified number of training
+
 def training(trainingsetnum, parsed_dataset, training_set, products):
     # establish training set
     for trelement in range(trainingsetnum):
