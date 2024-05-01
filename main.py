@@ -51,6 +51,7 @@ ftpwrong = 0
 telnetcorrect = 0
 telnetwrong = 0
 tuplecorrect = 0
+# remove any apostrophes to keep names consistent 
 for count in range(numofbannertests):
     if parsed_dataset[count][3][0] == '"':
         parsed_dataset[count][3] = parsed_dataset[count][3][1:]
@@ -77,7 +78,7 @@ for count in range(numofbannertests):
         result_dataset[count][5] = result_dataset[count][5][1:]
     if result_dataset[count][5][len(result_dataset[count][5])-1] == '"':
         result_dataset[count][5] = result_dataset[count][5][:-1]
-# compare
+# compare device type
     if parsed_dataset[count][3].lower() == result_dataset[count][3].lower():
         correctdt = correctdt + 1
         if parsed_dataset[count][0] == '"HTTP"':
@@ -128,6 +129,7 @@ for count in range(numofbannertests):
             ftpwrong = ftpwrong + 1
         elif parsed_dataset[count][0] == '"TELNET"':
             telnetwrong = telnetwrong + 1
+    # assess if entire tuple is correct
     if parsed_dataset[count][5].lower() == result_dataset[count][5].lower() and \
             parsed_dataset[count][4].lower() == result_dataset[count][4].lower() and \
             parsed_dataset[count][3].lower() == result_dataset[count][3].lower():
@@ -135,9 +137,8 @@ for count in range(numofbannertests):
 
 totcorrect = correctdt + correctv + correctp
 totwrong = wrongdt + wrongv + wrongp
-print("devices: ", devices)
-print("vendors: ", vendors)
-print("products: ", products)
+
+# print results to console
 if totcorrect == 0:
     print("NONE CORRECT :(")
 else:
