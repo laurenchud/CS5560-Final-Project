@@ -1,3 +1,6 @@
+# the purpose of this file is to take an input of a training set, a parsed dataset, and a predefined list of devices and vendors in order
+# to output key words from the current banner being processed
+
 import requests
 import time
 import string
