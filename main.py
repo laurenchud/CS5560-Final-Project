@@ -48,6 +48,7 @@ ftpcorrect = 0
 ftpwrong = 0
 telnetcorrect = 0
 telnetwrong = 0
+tuplecorrect = 0
 for count in range(numofbannertests):
     if parsed_dataset[count][3][0] == '"':
         parsed_dataset[count][3] = parsed_dataset[count][3][1:]
@@ -87,9 +88,6 @@ for count in range(numofbannertests):
         wrongdt = wrongdt + 1
         if parsed_dataset[count][0] == '"HTTP"':
             httpwrong = httpwrong + 1
-            print(parsed_dataset[count][1])
-            print("device: ", parsed_dataset[count][3], result_dataset[count][3])
-            print(devices)
         elif parsed_dataset[count][0] == '"FTP"':
             ftpwrong = ftpwrong + 1
         elif parsed_dataset[count][0] == '"TELNET"':
@@ -107,9 +105,6 @@ for count in range(numofbannertests):
         wrongv = wrongv + 1
         if parsed_dataset[count][0] == '"HTTP"':
             httpwrong = httpwrong + 1
-            print(parsed_dataset[count][1])
-            print("vendor: ", parsed_dataset[count][4], result_dataset[count][4])
-            print(vendors)
         elif parsed_dataset[count][0] == '"FTP"':
             ftpwrong = ftpwrong + 1
         elif parsed_dataset[count][0] == '"TELNET"':
@@ -127,15 +122,20 @@ for count in range(numofbannertests):
         wrongp = wrongp + 1
         if parsed_dataset[count][0] == '"HTTP"':
             httpwrong = httpwrong + 1
-            print(parsed_dataset[count][1])
-            print("product: ", parsed_dataset[count][5], result_dataset[count][5])
-            print(products)
         elif parsed_dataset[count][0] == '"FTP"':
             ftpwrong = ftpwrong + 1
         elif parsed_dataset[count][0] == '"TELNET"':
             telnetwrong = telnetwrong + 1
+    if parsed_dataset[count][5].lower() == result_dataset[count][5].lower() and \
+            parsed_dataset[count][4].lower() == result_dataset[count][4].lower() and \
+            parsed_dataset[count][3].lower() == result_dataset[count][3].lower():
+        tuplecorrect = tuplecorrect + 1
+
 totcorrect = correctdt + correctv + correctp
 totwrong = wrongdt + wrongv + wrongp
+print("devices: ", devices)
+print("vendors: ", vendors)
+print("products: ", products)
 if totcorrect == 0:
     print("NONE CORRECT :(")
 else:
@@ -196,3 +196,5 @@ else:
     print("num wrong ", ftpwrong)
     print("% wrong that are TELNET: ", tw)
     print("num wrong ", telnetwrong)
+    print(" ")
+    print("percent tuple: ", tuplecorrect*100/919)
