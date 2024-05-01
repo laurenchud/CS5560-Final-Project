@@ -1,6 +1,8 @@
 # Classifying Banner Data
 # Lauren Chuderewicz and Amanda Ross
 
+# this file runs the training and testing and prints the results to the console
+
 from make_guess import make_guess
 from parse_dataset import parse_dataset
 from training import training
